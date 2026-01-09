@@ -1,0 +1,204 @@
+:root {
+  --primary-color: #fff;
+  --accent-1: #ff00cc;
+  --accent-2: #333399;
+  --accent-3: #00bef5;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 20px;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #0f0c29;
+  background-image:
+    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--primary-color);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Vivid Mesh Gradient Background Animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 15% 50%, rgba(255, 0, 204, 0.15), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(0, 190, 245, 0.15), transparent 25%);
+  z-index: -1;
+  animation: meshMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes meshMove {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#app {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+/* Refined Glassmorphism Cards */
+.glass-card {
+  background: rgba(20, 20, 40, 0.4);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  background: rgba(30, 30, 60, 0.5);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.glass-card-sm {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  cursor: default;
+  height: 100%;
+}
+
+.glass-card-sm:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.ceo-card {
+  background: rgba(255, 255, 255, 0.08);
+  /* Slightly more opaque */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.1);
+  /* Subtle gold glow */
+}
+
+.ceo-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.2);
+}
+
+.project-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.project-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.project-card .icon-box {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .icon-box {
+  transform: scale(1.1) rotate(10deg);
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.contact-pill {
+  border-radius: 50px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover .contact-pill {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 190, 245, 0.3);
+  border-color: rgba(0, 190, 245, 0.4);
+  transform: scale(1.05);
+}
+
+/* Typography & Details */
+.brand-title {
+  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.tracking-wide {
+  letter-spacing: 0.2em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.15em;
+}
+
+.director-icon {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  color: #a0a0ff;
+}
+
+/* Animations */
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+  .brand-title {
+    font-size: 2.5rem;
+  }
+
+  .glass-card {
+    padding: 2rem !important;
+  }
+}
